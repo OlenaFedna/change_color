@@ -5,25 +5,29 @@
 // gestures. You can also use WidgetTester to find child widgets in the widget
 // tree, read text, and verify that the values of widget properties are correct.
 
-import 'package:change_color_protas/main.dart';
+import 'package:change_color_protas/constants/text_strings.dart';
+import 'package:change_color_protas/constants/ui_constants.dart';
+import 'package:change_color_protas/view/first_screen/color_provider.dart';
+import 'package:change_color_protas/view/first_screen/first_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:provider/provider.dart';
 
 void main() {
-  testWidgets('Counter increments smoke test', (WidgetTester tester) async {
-    // Build our app and trigger a frame.
-    await tester.pumpWidget(const MyApp());
+  testWidgets('Test first screen', (WidgetTester tester) async {
+    await tester.pumpWidget(
+      MaterialApp(
+        home: ChangeNotifierProvider<ColorProvider>(
+          create: (_) => ColorProvider(),
+          child: const FirstScreen(),
+        ),
+      ),
+    );
+    // Verify that we have change color text.
+    expect(find.text(TextStrings.changeColorButtonText), findsOneWidget);
 
-    // Verify that our counter starts at 0.
-    expect(find.text('0'), findsOneWidget);
-    expect(find.text('1'), findsNothing);
-
-    // Tap the '+' icon and trigger a frame.
-    await tester.tap(find.byIcon(Icons.add));
+    // find button by key and tap on it.
+    await tester.tap(find.byKey(const Key(KeyConstants.changeColorButton)));
     await tester.pump();
-
-    // Verify that our counter has incremented.
-    expect(find.text('0'), findsNothing);
-    expect(find.text('1'), findsOneWidget);
   });
 }

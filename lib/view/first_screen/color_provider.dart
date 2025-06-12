@@ -7,7 +7,7 @@ class ColorProvider extends ChangeNotifier {
   Color? get backgroundColor => _backgroundColor;
 
   void changeColor() {
-    _backgroundColor = RandomHelper.getRandomColor();
+    _backgroundColor = RandomHelper.getRandomColor3();
     notifyListeners();
   }
 

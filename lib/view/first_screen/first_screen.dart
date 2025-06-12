@@ -1,5 +1,7 @@
 import 'package:change_color_protas/constants/ui_constants.dart';
 import 'package:change_color_protas/view/first_screen/color_provider.dart';
+import 'package:change_color_protas/view/first_screen/widgets/change_color_button.dart';
+import 'package:change_color_protas/view/first_screen/widgets/reset_color_button.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -17,25 +19,21 @@ class FirstScreen extends StatelessWidget {
       body: Container(
         color: backgroundColor,
         alignment: Alignment.center,
-        child: ElevatedButton(
-          style: ElevatedButton.styleFrom(
-            backgroundColor: Colors.white,
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(
-                UiConstants.defaultCornerRadius,
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            const ChangeColorButton(),
+            const SizedBox(height: UIConstants.defaultSpace),
+            DecoratedBox(
+              decoration: BoxDecoration(
+                color: UIConstants.defaultBackgroundColor,
+                borderRadius: BorderRadius.circular(
+                  UIConstants.defaultButtonHeight / 2,
+                ),
               ),
+              child: const ResetColorButton(),
             ),
-          ),
-          onPressed: () {
-            context.read<ColorProvider>().changeColor();
-          },
-          child: const Text(
-            'Change Color',
-            style: TextStyle(
-              fontSize: UiConstants.defaultFontSize,
-              color: UiConstants.defaultTextColor,
-            ),
-          ),
+          ],
         ),
       ),
     );

@@ -1,3 +1,4 @@
+import 'package:change_color_protas/constants/text_strings.dart';
 import 'package:change_color_protas/view/first_screen/color_provider.dart';
 import 'package:change_color_protas/view/first_screen/first_screen.dart';
 import 'package:flutter/material.dart';
@@ -11,7 +12,7 @@ class AppContent extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Color app',
+      title: TextStrings.colorAppTitle,
       home: ChangeNotifierProvider(
         create: (_) => ColorProvider(),
         child: const FirstScreen(),
