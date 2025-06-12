@@ -7,11 +7,12 @@ class UIConstants {
   static const double defaultButtonHeight = 44.0;
   static const double iconSize = 24.0;
   // Colors
-  static const Color defaultTextColor = Colors.black87;
+  static const Color defaultTextColor = Colors.white70;
   static const Color defaultButtonColor = Colors.white;
   static const Color defaultBackgroundColor = Colors.black38;
+  static const Color defaultTextBackgroundColor = Colors.black87;
 }
 
 class KeyConstants {
-  static const String changeColorButton = 'changeColorButton';
+  static const String resetColorButton = 'changeColorButton';
 }

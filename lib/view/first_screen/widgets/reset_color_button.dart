@@ -8,17 +8,26 @@ class ResetColorButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return IconButton(
-      iconSize: UIConstants.defaultButtonHeight,
-      color: UIConstants.defaultTextColor,
-      icon: const Icon(
-        Icons.refresh,
-        color: UIConstants.defaultButtonColor,
-        size: UIConstants.iconSize,
+    return DecoratedBox(
+      decoration: BoxDecoration(
+        color: UIConstants.defaultBackgroundColor,
+        borderRadius: BorderRadius.circular(
+          UIConstants.defaultButtonHeight / 2,
+        ),
       ),
-      onPressed: () {
-        context.read<ColorProvider>().resetColor();
-      },
+      child: IconButton(
+        key: const Key(KeyConstants.resetColorButton),
+        iconSize: UIConstants.defaultButtonHeight,
+        color: UIConstants.defaultTextColor,
+        icon: const Icon(
+          Icons.refresh,
+          color: UIConstants.defaultButtonColor,
+          size: UIConstants.iconSize,
+        ),
+        onPressed: () {
+          context.read<ColorProvider>().resetColor();
+        },
+      ),
     );
   }
 }

@@ -2,7 +2,7 @@ import 'package:change_color_protas/utils/random_helper.dart';
 import 'package:flutter/material.dart';
 
 class ColorProvider extends ChangeNotifier {
-  Color? _backgroundColor;
+  Color? _backgroundColor = Colors.transparent;
 
   Color? get backgroundColor => _backgroundColor;
 
@@ -12,7 +12,7 @@ class ColorProvider extends ChangeNotifier {
   }
 
   void resetColor() {
-    _backgroundColor = null;
+    _backgroundColor = Colors.transparent;
     notifyListeners();
   }
 }

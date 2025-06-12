@@ -23,11 +23,19 @@ void main() {
         ),
       ),
     );
-    // Verify that we have change color text.
-    expect(find.text(TextStrings.changeColorButtonText), findsOneWidget);
 
-    // find button by key and tap on it.
-    await tester.tap(find.byKey(const Key(KeyConstants.changeColorButton)));
-    await tester.pump();
+    // check that we have text.
+    expect(find.text(TextStrings.helloThereButtonText), findsOneWidget);
+
+    //check reset color button
+    expect(
+      find.byKey(const Key(KeyConstants.resetColorButton)),
+      findsOneWidget,
+    );
+    expect(
+      find.byKey(const Key(KeyConstants.resetColorButton)),
+      findsOneWidget,
+    );
+    await tester.tap(find.byKey(const Key(KeyConstants.resetColorButton)));
   });
 }

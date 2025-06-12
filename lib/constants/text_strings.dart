@@ -1,4 +1,4 @@
 class TextStrings {
-  static const String changeColorButtonText = 'Change Color';
+  static const String helloThereButtonText = 'Hello there';
   static const String colorAppTitle = 'Color App';
 }
